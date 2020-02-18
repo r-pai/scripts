@@ -23,3 +23,11 @@ sudo apt --assume-yes install docker-ce
 if [ "$(whoami)" = "ubuntu" ]; then
     sudo usermod -aG docker ubuntu
 fi
+
+# Install Docker Compose
+# check the Release(https://github.com/docker/compose/releases ) and replace 1.25.4 in the command below with the version tagged as Latest release
+DOCKERCOMPOSE_VERSION=1.25.4
+sudo curl -L https://github.com/docker/compose/releases/download/$DOCKERCOMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+
+# Set file permissions
+sudo chmod +x /usr/local/bin/docker-compose
